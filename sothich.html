@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chọn Sở Thích</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🧠 Bạn Thích Gì?</h1>
+  <form id="form">
+    <label><input type="checkbox" name="like" value="coding"> 💻 Lập trình</label>
+    <label><input type="checkbox" name="like" value="design"> 🎨 Thiết kế</label>
+    <label><input type="checkbox" name="like" value="talking"> 🗣️ Giao tiếp</label>
+    <label><input type="checkbox" name="like" value="analyze"> 📊 Phân tích dữ liệu</label>
+    <button type="submit">Xem kết quả</button>
+  </form>
+
+  <script>
+    document.getElementById('form').onsubmit = function(e) {
+      e.preventDefault();
+      const checked = [...document.querySelectorAll('input[name="like"]:checked')].map(el => el.value);
+      localStorage.setItem('likes', JSON.stringify(checked));
+      window.location.href = 'ketqua.html';
+    };
+  </script>
+</body>
+</html>

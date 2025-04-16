@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kết Quả</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📌 Ngành Học Phù Hợp</h1>
+  <div id="result"></div>
+  <a href="sothich.html">🔁 Thử lại</a>
+
+  <script>
+    const likes = JSON.parse(localStorage.getItem('likes')) || [];
+    let suggestion = 'Chưa xác định. Hãy chọn ít nhất 1 sở thích.';
+
+    if (likes.includes('coding')) suggestion = '💻 Ngành Công nghệ thông tin';
+    else if (likes.includes('design')) suggestion = '🎨 Ngành Thiết kế đồ họa';
+    else if (likes.includes('talking')) suggestion = '🗣️ Ngành Quan hệ công chúng';
+    else if (likes.includes('analyze')) suggestion = '📊 Ngành Phân tích dữ liệu';
+
+    document.getElementById('result').innerText = 'Gợi ý: ' + suggestion;
+  </script>
+</body>
+</html>
